@@ -62,20 +62,17 @@ $(function() {
           */
         
         it("menu changes visibility when the menu icon is clicked", function () {
-            let status = $(document.body).hasClass("menu-hidden");
-            if (status === true){
-                $(".menu-icon-link").click();
-                expect($("body").hasClass("menu-hidden")).toBe(false);
-            } else {
-                $(".menu-icon-link").click();
-                expect($("body").hasClass("menu-hidden")).toBe(true);
-            }
+            $(".menu-icon-link").click();
+            expect($("body").hasClass("menu-hidden")).toBe(false);
+
+            $(".menu-icon-link").click();
+            expect($("body").hasClass("menu-hidden")).toBe(true);
         })
-    })
-    
-         
+    });
 
     /* TODO: Write a new test suite named "Initial Entries" */
+
+    describe("Initial Entries", function () {
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
@@ -83,6 +80,21 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+        let feedLength;
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                feedLength = $(".feed").length;
+                done();
+            });
+        });
+
+        it("feed container contains an entry element", function (done) {
+            expect(feedLength).toBeGreaterThan(0);
+            done();
+        });
+    });
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
