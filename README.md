@@ -13,6 +13,15 @@ alongside your server-side ones.
 
 ## Instructions
 
+How to run this application locally:
+
+1. Clone the repo or download the zip file.
+1. Open the 'index.html' file in your browser.
+1. Tests can be seen at the bottom.
+1. To add or modify tests, use the 'feedreader.js' file.
+
+OR
+
 1. Open the [application](https://avnikolaou.github.io/Feed-Reader-Testing-with-Jasmine/) into your browser.
 1. Scroll down to the bottom of the page and verify that the Jasmine framework was loaded correctly and tests actually
 took place. ![Alt text](images/Jasmine.png "Jasmine framework")
