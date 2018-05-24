@@ -32,7 +32,7 @@ $(function() {
          * and that the name is not empty.
          */
 
-        it("have a URL defined and not empty", function () {
+        it("have a name defined and not empty", function () {
             allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
                 expect(feed.name.length).toBeGreaterThan(0);
@@ -52,17 +52,28 @@ $(function() {
          */
         
         it("menu element hidden by default", function () {
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect($("body").hasClass("menu-hidden")).toBe(true);
         })
-    })
 
-
-
-         /* TODO: Write a test that ensures the menu changes
+        /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        
+        it("menu changes visibility when the menu icon is clicked", function () {
+            let status = $(document.body).hasClass("menu-hidden");
+            if (status === true){
+                $(".menu-icon-link").click();
+                expect($("body").hasClass("menu-hidden")).toBe(false);
+            } else {
+                $(".menu-icon-link").click();
+                expect($("body").hasClass("menu-hidden")).toBe(true);
+            }
+        })
+    })
+    
+         
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
