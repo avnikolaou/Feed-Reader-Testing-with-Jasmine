@@ -9,8 +9,7 @@ $(function() {
 
         it("have a URL defined and not empty", function () {
             allFeeds.forEach(function (feed) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url.length).toBeGreaterThan(0);
+                expect(feed.url).toBeTruthy();
             })
         });
 
@@ -55,16 +54,14 @@ $(function() {
          * a single .entry element within the .feed container.
          */
 
-        let feedLength;
         beforeEach(function (done) {
             loadFeed(0, function () {
-                feedLength = $(".feed").length;
                 done();
             });
         });
 
         it("feed container contains an entry element", function (done) {
-            expect(feedLength).toBeGreaterThan(0);
+            expect($(".feed .entry").length).toBeGreaterThan(0);
             done();
         });
     });
