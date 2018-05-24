@@ -88,7 +88,7 @@ $(function() {
         });
 
         it("content changed",function (done) {
-            expect(firstFeed !== secondFeed).not.toBe(false);
+            expect(firstFeed).not.toEqual(secondFeed);
             done();
         });
     });
